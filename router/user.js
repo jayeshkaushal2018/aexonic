@@ -9,7 +9,13 @@ router.get("/users",verifyToken,async (req,res)=>{
 
     try{
    
-        const data = await User.find();
+        const pagination = req.query.pagination
+        ? parseInt(req.query.pagination)
+        :2;
+        const page = req.query.page ? parseInt(req.query.page):1;
+        const data = await User.find()
+        .skip((page -1) * pagination)
+        .limit(pagination);
     
         res.status(200).json(data);
 

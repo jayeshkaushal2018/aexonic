@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const aggregatePaginate = require("mongoose-aggregate-paginate-v2"); //first step
+// const aggregatePaginate = require("mongoose-aggregate-paginate-v2"); //first step
 
 var userSchema = new mongoose.Schema({
   
@@ -48,7 +48,7 @@ var userSchema = new mongoose.Schema({
     }
 });
 
-userSchema.plugin(aggregatePaginate); //second step
+// userSchema.plugin(aggregatePaginate); //second step
 
 
 module.exports = mongoose.model('User',userSchema);
